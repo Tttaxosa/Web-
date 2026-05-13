@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Редактировать задачу{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-warning">
+                <h4 class="mb-0"><i class="fas fa-edit"></i> Редактировать задачу</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Название *</label>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ task.title }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Описание</label>
+                        <textarea class="form-control" id="description" name="description" rows="4">{{ task.description }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Статус</label>
+                        <select class="form-select" id="status" name="status">
+                            <option value="pending" {% if task.status == 'pending' %}selected{% endif %}>Ожидает</option>
+                            <option value="in_progress" {% if task.status == 'in_progress' %}selected{% endif %}>В процессе</option>
+                            <option value="completed" {% if task.status == 'completed' %}selected{% endif %}>Выполнено</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="priority" class="form-label">Приоритет</label>
+                        <select class="form-select" id="priority" name="priority">
+                            <option value="low" {% if task.priority == 'low' %}selected{% endif %}>Низкий</option>
+                            <option value="medium" {% if task.priority == 'medium' %}selected{% endif %}>Средний</option>
+                            <option value="high" {% if task.priority == 'high' %}selected{% endif %}>Высокий</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-warning">
+                        <i class="fas fa-save"></i> Сохранить
+                    </button>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
