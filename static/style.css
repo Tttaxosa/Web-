@@ -1,0 +1,43 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.btn {
+    border-radius: 5px;
+}
+
+.table-responsive {
+    border-radius: 8px;
+}
+
+.badge {
+    font-size: 0.85em;
+    padding: 5px 10px;
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+}
+
+footer {
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 14px;
+    }
+
+    .btn-sm {
+        padding: 2px 6px;
+    }
+}
